@@ -11,7 +11,7 @@ body {
     text-align: center;
 }
 
-.box {
+#input {
     width: 500px;
     height: 500px;
     background-image: linear-gradient(to right, #ffb6c1, #ffc5c5);
@@ -82,4 +82,38 @@ img {
     background-color: #ffa7a7;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
     transform: scale(0.97);
+}
+
+#console {
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  font-family: Consolas, 'Courier New', monospace;
+  height: 350px;
+  width: 500px;
+  position: fixed;
+  top: 48%;
+  left: 45%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #ffbebe;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#console.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+#output {
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(58, 27, 58);
 }
