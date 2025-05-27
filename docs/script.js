@@ -49,10 +49,7 @@ Org: ${data.org}
     }
 }
 
-button.addEventListener("click", async () => {
-    const ip = document.getElementById("t").value;
-    const bots = document.getElementById("v").value;
-
+async function runAttack(ip, bots) {
     box.classList.add("visible");
 
     await pp("=== INITIATING DDOS ATTACK ===", 1);
@@ -94,5 +91,25 @@ button.addEventListener("click", async () => {
             sleep(11).then(() => {
         getIPInfo()
     })
-});
+}
 
+let cooldown = false;
+
+button.addEventListener("click", async () => {
+    if (cooldown) return;
+
+    const ip = document.getElementById("t").value;
+    const bots = document.getElementById("v").value;
+
+    cooldown = true;
+    button.disabled = true;
+    button.innerText = "COOLDOWN...";
+
+    await clearConsole();
+    await runAttack(ip, bots);
+
+    await sleep(10); // Cooldown lasts 10 seconds
+    cooldown = false;
+    button.disabled = false;
+    button.innerText = "ATTAK!!";
+});
