@@ -32,32 +32,18 @@ img {
     display: block;
     margin: 0 auto;
     position: absolute;
-}                           
+}
 
 #mm {
     width: 400px;
     height: 200px;
     border-radius: 10px;
-    left:23%;
+    left: 23%;
     top: 73%;
     display: block;
     margin: 0 auto;
     position: absolute;
-}                           
-
-#t, #v, #attak {
-    display: block;
-    width: 300px;
-    margin: 100px auto;
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    background-color: #f0f0f0;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 
 #t, #v, #attak {
     display: block;
@@ -85,35 +71,123 @@ img {
 }
 
 #console {
-  white-space: pre-wrap;
-  font-family: Consolas, monospace;
-  font-family: Consolas, 'Courier New', monospace;
-  height: 350px;
-  width: 500px;
-  position: fixed;
-  top: 48%;
-  left: 45%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background: #ffbebe;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 600px;
+    height: 400px;
+    background: #0c0c0c;
+    border: 1px solid #333;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 #console.visible {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: auto;
-  visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.console-header {
+    background: #1a1a1a;
+    padding: 8px 12px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.console-title {
+    font-weight: bold;
+}
+
+.console-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.console-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-btn { background: #ff5f57; }
+.minimize-btn { background: #ffbd2e; }
+.maximize-btn { background: #28c940; }
+
+#output-container {
+    padding: 15px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #c0c0c0;
 }
 
 #output {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgb(58, 27, 58);
+}
 
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgb(58, 27, 58);
+@media (max-width: 768px) {
+    #input {
+        width: 90vw;
+        height: auto;
+        padding: 20px;
+        left: 50%;
+        top: 55%;
+    }
+
+    img {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-top: 20px;
+    }
+
+    #mm {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    #console {
+        width: 90vw;
+        height: 60vh;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    #t, #v, #attak {
+        width: 90%;
+        margin: 40px auto;
+        font-size: 14px;
+    }
+
+    .console-header {
+        font-size: 12px;
+    }
+
+    #output-container {
+        padding: 10px;
+        font-size: 12px;
+    }
 }
