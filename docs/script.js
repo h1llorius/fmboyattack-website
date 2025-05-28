@@ -107,6 +107,7 @@ button.addEventListener("click", async () => {
 
     await clearConsole();
     await runAttack(ip, bots);
+    await changeFontColor("white");
 
     await sleep(10); // Cooldown lasts 10 seconds
     cooldown = false;
